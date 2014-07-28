@@ -1,0 +1,9 @@
+Package: TimerPlot
+Type: Package
+Title: Plot for data collected by Timer
+Version: 0.0.0.0.0
+Author: Romain Francois <romain@r-enthusiasts.com>
+Maintainer: Romain Francois <romain@r-enthusiasts.com>
+Description: Plot for data collected by Timer
+Depends: R (>= 3.1.1)
+
