@@ -1,20 +1,18 @@
 plot.Timer <- function(data, colors = 
   c(
-    start = "white", spawn = "gray", train = "red", 
-    join = "green", merge = "blue", parallelReduce = "orange",
-    structure = "blue"
-  )
+    start = "white", spawn = "gray", train = "royalblue", 
+    join = "red", merge = "purple3", parallelReduce = "white",
+    structure = "orange"
+  ), 
+  xmax = max(unlist(data))
 ){
     nthreads <- length(data)
     for(i in 1:nthreads) data[[i]] <- data[[i]] / 1e6
   
-    xlim <- range(unlist(data))
-    print(xlim)
-    
+    xlim <- c(0, xmax)
     ylim <- c(0.5, length(data) + .5)
-    
-    par( mar = rep(.5,4) )
-    plot( 0, type = "n", xlim = xlim, ylim = ylim, axes = FALSE, ann = FALSE )
+    plot( 0, type = "n", xlim = xlim, ylim = ylim, 
+        axes = FALSE, ann = FALSE, yaxs = "i", xaxs = "i" )
     
     for( i in 1:length(data) ){
         x <- c( "start" = 0, data[[i]] )
@@ -24,7 +22,8 @@ plot.Timer <- function(data, colors =
           ybottom = rep(i-.5,n-1), 
           ytop = rep(i+0.5,n-1), 
           col = colors[names], 
-          border = NA
+          border = ifelse(names=="start", NA, "black"), 
+          lwd = .5
           )   
     }
     
