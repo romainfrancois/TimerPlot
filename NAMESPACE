@@ -1,2 +1,4 @@
-S3method(plot,Timer)
+S3method(plot,SingleTimer)
+S3method(plot,TimersList)
+S3method(plot,FixedSizeTimers)
 
